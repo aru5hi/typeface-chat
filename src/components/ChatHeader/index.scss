@@ -4,10 +4,12 @@
 @import "../../sass/atoms/threeDot.scss";
 
 .headContainer {
-    background-color: $chat-head-bg;
-    width: 100%;
-    border-bottom: 1px solid #ededed;
-    padding: 12px 24px;
+  position: fixed;
+  top: 0;
+  background-color: $chat-head-bg;
+  width: 100%;
+  border-bottom: 1px solid #ededed;
+  padding: 12px 24px;
   }
 .headName {
   display: inline-block;

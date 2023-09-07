@@ -1,15 +1,11 @@
 import classNames from "classnames";
 import "./index.scss";
-import { TSenderType } from "../../components/ChatBox/interface";
+import { TSingleMessage } from "../../interface";
 import moment from "moment";
 import { TDateDiff, getDateDiff } from "../../utility/dateUtils";
 
-export interface TMessage {
-  message: string;
-  timeSent: string;
-  sender?: string;
+interface TMessage extends TSingleMessage {
   classNames?: string;
-  senderType: TSenderType;
 }
 
 export const Message = (props: TMessage): JSX.Element => {
@@ -35,7 +31,7 @@ export const Message = (props: TMessage): JSX.Element => {
     "otherMsg": props.senderType === "other",
   })}>
     {props.sender ?
-      <p className="msgSender">{props.sender}</p>:
+      <p className="msgSender">{props.sender.name}</p>:
       null}
     <p className="message">{props.message}</p>
     <p className="msgTimeStamp">

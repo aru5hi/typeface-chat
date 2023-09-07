@@ -1,54 +1,35 @@
+import { useAppDispatch, useAppSelector } from "../../stateContext/reduxHooks";
 import { ChatHeader } from "../ChatHeader/ChatHeader";
 import { MessageTextBox } from "../MessageTextBox";
 import { MessageList } from "./MessageList";
+import { addNewMessage } from "../../stateContext/chatSlice";
+import { TSingleMessage } from "../../interface";
 
-export const ChatBox = (): JSX.Element => <div className="chatBox"><ChatHeader userData={{
-  id: "12",
-  name: "Tripti",
-  description: "I am a birdie",
-  contactNo: "+91-11111111111",
-  groups: [],
-  profilePicUrl: "https://picsum.photos/id/6/50"
-}}/>
-<MessageList
-  chatType="personal"
-  messageList={[
-    {
-      id: "1",
-      messageData: {
-        sender: "Arushi Mishra",
-        message: "Hello Trupti! How's it going ?? lets catch up",
-        timeSent: "2023-09-05T21:50:00",
-        senderType: "self"
-      },
-    },
-    {
-      id: "12",
-      messageData: {
-        sender: "Arushi Mishra",
-        message: "lets catch up",
-        timeSent: "2023-09-05T21:52:00",
-        senderType: "self"
-      },
-    },
-    {
-      id: "2",
-      messageData: {
-        sender: "Trupti",
-        message: "Heyyy wassup",
-        timeSent: "2023-09-05T21:54:01",
-        senderType: "other"
-      },
-    },
-    {
-      id: "3",
-      messageData: {
-        sender: "Trupti",
-        message: "All good! yes let's meet",
-        timeSent: "2023-09-06T13:02:30",
-        senderType: "other"
-      },
-    }
-  ]}/>
-<MessageTextBox/>
-</div>;
+interface TChatBox {
+  chatId: string;
+}
+export const ChatBox = (props: TChatBox): JSX.Element => {
+  const chatList = useAppSelector(state => state.chatReducer.chatList);
+  const userData = useAppSelector(state => state.chatReducer.userData);
+  const dispatch = useAppDispatch();
+  const previousMsgId = chatList ? chatList[props.chatId].messageList[chatList[props.chatId].messageList.length - 1].id : "0";
+  const currentChat = chatList ? chatList[props.chatId]: null;
+
+  const handleNewMessage = (newMessage: TSingleMessage): void => {
+    dispatch(addNewMessage({id: props.chatId, message: newMessage}));
+  };
+
+  return <>
+    {userData && currentChat ? <div className="chatBox">
+      <ChatHeader userData={currentChat}/>
+      {chatList ?
+        <MessageList
+          chatType="personal"
+          messageList={currentChat.messageList}/> :
+        null}
+      <MessageTextBox chatId={props.chatId} previousMsgId={previousMsgId} onSentClick={handleNewMessage}/>
+    </div> : null}
+  </>;
+};
+
+

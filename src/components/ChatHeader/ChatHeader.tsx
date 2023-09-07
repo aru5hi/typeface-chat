@@ -1,15 +1,15 @@
 import { Avatar } from "../../atoms/Avatar";
-import { TUserData } from "../ChatBox/interface";
+import { TChatData } from "../../interface";
 import "./index.scss";
 
 
 interface TMessageList {
-    userData: TUserData;
+    userData: TChatData;
 }
 
 export const ChatHeader = (props: TMessageList): JSX.Element => <div className="headContainer">
-  <Avatar name={props.userData.name} imgSrc={props.userData.profilePicUrl} classname="headerAvatar"/>
-  <h4 className="headName">{props.userData.name}</h4>
+  <Avatar name={props.userData.title} imgSrc={props.userData.displayPicture} classname="headerAvatar"/>
+  <h4 className="headName">{props.userData.title}</h4>
   <div className="threeDot">
     <span className="dots"></span>
     <span className="dots"></span>

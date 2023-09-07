@@ -6,7 +6,7 @@ function Main(): React.ReactElement {
 
   return (
     <div className="App">
-      <ChatBox/>
+      <ChatBox chatId="#chat1"/>
     </div>
   );
 }
