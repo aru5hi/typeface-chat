@@ -33,6 +33,10 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 # Documentation
 
-## State management
+The application is a simple chat application. It uses redux for state management.
+Features included:
 
-    Using redux for managing various states and the relation between each state object
+- list of chats
+- chat messages
+- message box to enter the message . A message is sent when you press enter(send button:wip)
+- Reply box - works similar to message box

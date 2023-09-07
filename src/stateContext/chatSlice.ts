@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { TChatData, TSingleMessage, TUserData } from "../interface";
-
+import mockUserData from "../mock/userData";
+import mockChatData from "../mock/chatData";
 export interface TGlobalChatState {
   activeChatId: string | null;
   userData: TUserData | null;
@@ -9,78 +10,21 @@ export interface TGlobalChatState {
 
 const initialState: TGlobalChatState = {
   activeChatId: null,
-  userData: {
-    id: "1",
-    name: "Arushi Mishra",
-    description: "I am a birdie",
-    contactNo: "+91-9310984887",
-    profilePicUrl: "https://picsum.photos/id/6/50"
-  },
-  chatList: {
-    "#chat1": {
-      id: "#chat1",
-      title: "Tripti",
-      chatType: "personal",
-      displayPicture: "https://picsum.photos/id/10/50",
-      recipients: [
-        {
-          id: "12",
-          name: "Tripti",
-          description: "I am a birdie",
-          contactNo: "+91-11111111111",
-          profilePicUrl: "https://picsum.photos/id/6/50"
-        }
-      ],
-      messageList: [
-        {
-          id: "12",
-          message: "lets catch up",
-          timeSent: "2023-09-05T21:52:00",
-          senderType: "self",
-          sender: {
-            id: "1",
-            name: "Arushi Mishra",
-            description: "I am a birdie",
-            contactNo: "+91-9310984887",
-            profilePicUrl: "https://picsum.photos/id/6/50"
-          },
-          replies: []
-        },
-        {
-          id: "2",
-          message: "Heyyy wassup",
-          timeSent: "2023-09-05T21:54:01",
-          senderType: "other",
-          sender: {
-            id: "12",
-            name: "Tripti",
-            description: "I am a birdie",
-            contactNo: "+91-11111111111",
-            profilePicUrl: "https://picsum.photos/id/6/50"
-          },
-        },
-        {
-          id: "3",
-          sender: {
-            id: "12",
-            name: "Tripti",
-            description: "I am a birdie",
-            contactNo: "+91-11111111111",
-            profilePicUrl: "https://picsum.photos/id/6/50"
-          },
-          message: "All good! yes let's meet",
-          timeSent: "2023-09-06T13:02:30",
-          senderType: "other"
-        },
-      ]
-    }
-  }
+  userData: mockUserData,
+  chatList: mockChatData
 };
 
 interface TNewMessagePayload {
   id: string;
   message: TSingleMessage;
 }
+
+interface TReplyPayload {
+  parentMsg: string;
+  parentChat: string;
+  reply: TSingleMessage;
+}
+
 const chatSlice = createSlice({
   name: "chat",
   initialState,
@@ -89,7 +33,18 @@ const chatSlice = createSlice({
       state.activeChatId = action.payload;
     },
     addNewMessage(state, action: PayloadAction<TNewMessagePayload>) {
-      if(state.chatList) state.chatList[action.payload.id].messageList.push(action.payload.message);
+      console.log(state);
+      if(state.chatList) {
+        state.chatList[action.payload.id].messageList.push(action.payload.message);
+      }
+    },
+    addNewReply(state,action: PayloadAction<TReplyPayload>) {
+      if(state.chatList) state.chatList[action.payload.parentChat].messageList.forEach(msg => {
+        if(msg.id === action.payload.parentMsg) {
+          if(!msg.replies) msg.replies = [];
+          msg.replies.push(action.payload.reply);
+        }
+      });
     },
     deleteMessage(state, action: PayloadAction<TNewMessagePayload>) {
       if(state.chatList) {
@@ -100,5 +55,5 @@ const chatSlice = createSlice({
   },
 });
 
-export const { addNewMessage, deleteMessage } = chatSlice.actions;
+export const { updateActiveChatId, addNewMessage, deleteMessage, addNewReply } = chatSlice.actions;
 export default chatSlice.reducer;

@@ -7,6 +7,11 @@
   border-radius: $msg-box-radius;
   padding: 8px;
   margin-bottom: 10px;
+  &:hover{
+    .reply {
+      display: block;
+    }
+  }
 }
 
 .otherMsg {
@@ -16,7 +21,7 @@
   .msgSender, .msgTimeStamp {
     color: $sub-text-dark;
   } 
-
+  
 }
 
 .selfMsg {
@@ -24,9 +29,14 @@
   text-align:  right;
   background-color: $my-msg-bg;
   color: $main-text-dark;
+
   .msgSender, .msgTimeStamp {
     color: $sub-text-dark;
   } 
+
+  .reply {
+    float: left;
+  }
 }
 
 .msgSender { 
@@ -38,10 +48,23 @@
 .message {
   font-size: 12px;
   font-weight: 500;
+  white-space: break-spaces;
+    word-wrap: break-word;
 }
 
 .msgTimeStamp {
   margin-top: 4px;
   font-size: 10px;
   color: $sub-text-dark
+}
+
+.reply {
+  display: none;
+  font-size: 10px;
+  color: $sub-text-dark;
+  float: right;
+  cursor: pointer;
+  &:hover {
+    color: $main-text-dark;
+  }
 }

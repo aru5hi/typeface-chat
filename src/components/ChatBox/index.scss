@@ -1,25 +1,46 @@
 @import "../../sass/variable.scss";
 @import "../../sass/mixins.scss";
-.chatBox {
-  @include chat-scrollbar;
-  overflow-y: auto;
-  overflow-x: hidden;
+
+.appMain {
+  width: 70%;
+  display: inline-block;
+  overflow: auto;
 }
 
 .messageListContainer {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: flex-end;
+  margin-top: 62px;
   border: 1px solid #cce6ff;
   border-top: none;
   padding: 12px 24px;
-  overflow-y: auto;
-  overflow-x: hidden;
   height: 100vh;
   padding-bottom: 52px;
+  overflow: auto;
 }
 
 .singleMsg {
-  width: 100%;
+display: block;
+}
+
+.threadParent {
+  margin: 10px 0;
+  padding: 10px;
+  width: 50%;
+  border-radius: 8px;
+  background-color: #ededed;
+  &.left {
+    float: left;
+    .threadReply {
+      float: left;
+      margin-left: 12px;
+      text-align: left;
+    }
+  }
+  &.right {
+    float: right;
+    .threadReply {
+      float: right;
+      margin-right: 12px;
+      text-align: right;
+    }
+  }
 }

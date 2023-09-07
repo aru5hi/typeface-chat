@@ -1,0 +1,37 @@
+@import "../../sass/variable.scss";
+
+.appSide {
+    width: 30%;
+    display: inline-block;
+    vertical-align: top;
+    border-right: 1px solid #cce6ff;
+    margin-top: 62px;
+}
+.chatItemContainer {
+    width: 100%;
+    padding: 12px 24px;
+    cursor: pointer;
+    &:hover{
+        background-color: $color-primary;
+    }
+}
+
+.chatTitle {
+    display: inline-block;
+    vertical-align: bottom;
+    margin-left: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: $main-text-dark;
+}
+
+.lastMessage {
+    display: block;
+    font-size: 12px;
+    font-weight: 400;
+    color: $main-text-dark;
+    width: 246px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

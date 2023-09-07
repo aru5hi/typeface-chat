@@ -1,5 +1,5 @@
 export type TSenderType = "other" | "self";
-export type TChatType = "group" | "channel" | "personal"
+export type TChatType = "thread" | "personal"
 
 
 export interface TUserData {
@@ -20,6 +20,8 @@ export interface TSingleMessage {
   timeSent: string;
   senderType: TSenderType;
   sender?: TUserData;
+  parentChatId?: string;
+  parentMsgId?: string;
   replies?: TSingleMessage[];
 }
 

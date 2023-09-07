@@ -2,9 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import chatSlice from "./chatSlice";
 
 export const store = configureStore({
-  reducer: {
-    chatReducer: chatSlice,
-  },
+  reducer: chatSlice
 });
 
 export type AppDispatch = typeof store.dispatch;
