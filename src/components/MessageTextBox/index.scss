@@ -1,0 +1,13 @@
+@import "../../sass/atoms/input.scss";
+
+.messageTextBox {
+    width: 100%;
+    position: fixed;
+    padding: 0 8px;
+    bottom: 0;
+}
+
+.chatInput {
+   width: calc(100% - 18px);
+}
+

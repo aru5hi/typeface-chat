@@ -5,31 +5,43 @@
   max-width: 50%;
   width:max-content;
   border-radius: $msg-box-radius;
-  margin: 24px;
-  padding: 8px 12px;
+  padding: 8px;
+  margin-bottom: 10px;
 }
+
 .otherMsg {
   text-align: left;
   background-color: $other-msg-bg;
+  color: $main-text-dark;
+  .msgSender, .msgTimeStamp {
+    color: $sub-text-dark;
+  } 
+
 }
+
 .selfMsg {
-  margin: 0;
   margin-left: auto;
   text-align:  right;
   background-color: $my-msg-bg;
-}
-.msgSender { 
-  font-size: 12px;
-  color: #a6a6a6;
+  color: $main-text-dark;
+  .msgSender, .msgTimeStamp {
+    color: $sub-text-dark;
+  } 
 }
 
+.msgSender { 
+  margin-bottom: 8px;
+  font-size: 10px;
+}
+
+
 .message {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
-  color: #4f4a4a
 }
 
 .msgTimeStamp {
-  font-size: 12px;
-  color: #a6a6a6
+  margin-top: 4px;
+  font-size: 10px;
+  color: $sub-text-dark
 }

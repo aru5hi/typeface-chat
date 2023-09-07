@@ -1,0 +1,14 @@
+@mixin chat-scrollbar {
+    overflow: auto;
+    ::-webkit-scrollbar {
+        width: 4px;
+        height: 4px;
+        border-radius: 4px;
+        background-color: transparent;
+      }
+      
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: #b0acac;
+      }
+}

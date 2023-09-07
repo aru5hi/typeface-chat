@@ -1,0 +1,39 @@
+.threeDot {
+float:right;
+cursor: pointer;
+padding: 0 5px;
+.dots {
+    display: block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    margin-bottom: 4px;
+    background-color: $main-text-dark;
+}
+&:hover {
+    .menuList {
+    display: block;
+    }
+}
+}
+
+.menuList {
+border: 1px solid #ededed;
+background-color: $color-white;
+border-radius: 8px;
+display: none;
+min-width: 120px;
+position: absolute;
+top: 50px;
+right: 10px;
+overflow: hidden;
+.item {
+    padding: 10px;
+    font-size: 16px;
+    color: $sub-text-dark;
+    &:hover {
+background-color: $color-primary;
+        color: $main-text-light;
+    }
+}
+}

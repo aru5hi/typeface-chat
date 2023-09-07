@@ -1,13 +1,19 @@
-.messageListContainer {
-  max-width: 800px;
-  border: 1px solid #cce6ff;
-  border-radius: 4px;
-  padding: 12px;
+@import "../../sass/variable.scss";
+@import "../../sass/mixins.scss";
+.chatBox {
+  @include chat-scrollbar;
   overflow-y: auto;
   overflow-x: hidden;
+}
+.messageListContainer {
+  border: 1px solid #cce6ff;
+  border-top: none;
+  padding: 12px 24px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100vh;
 }
 
 .singleMsg {
   width: 100%;
 }
-

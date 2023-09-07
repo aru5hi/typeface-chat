@@ -21,7 +21,9 @@ export const Avatar = (props: TAvatar): JSX.Element => {
 
   const getRandomColor = (): string => `#${Math.floor(Math.random()*16777215).toString(16)}`;
 
-  return <div className={classNames("avatarContainer", props.classname)} style={{backgroundColor: getRandomColor()}}>
+  return <div className={classNames("avatarContainer", props.classname, {
+    "avatarTitle": !props.imgSrc
+  })} style={{backgroundColor: getRandomColor()}}>
     {imgSrc ?
       <img className="avatarImg" src={imgSrc} alt={getNameInitials()} /> :
       <span className="avatarName">{getNameInitials()}</span>

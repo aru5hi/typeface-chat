@@ -1,0 +1,21 @@
+
+@import "../../sass/variable.scss";
+@import "../../sass/mixins.scss";
+@import "../../sass/atoms/threeDot.scss";
+
+.headContainer {
+    background-color: $chat-head-bg;
+    width: 100%;
+    border-bottom: 1px solid #ededed;
+    padding: 12px 24px;
+  }
+.headName {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 16px;
+  color: $main-text-dark;
+  margin-left: 10px;
+}
+.threeDot {
+  margin-top: 10px;
+}
