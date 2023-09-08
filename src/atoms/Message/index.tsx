@@ -41,6 +41,8 @@ export const Message = (props: TMessage): JSX.Element => {
     }
   };
 
+  const senderName = props.senderType === "self" ? "you" :  props.sender?.name;
+
   return <>
     <div className={classNames("msgContainer", props.classNames, {
       "selfMsg": props.senderType === "self",
@@ -49,7 +51,7 @@ export const Message = (props: TMessage): JSX.Element => {
       {props.sender ?
         <>
           {!props.parentMsgId ? <span className="reply" onClick={onReplyClick}>Reply</span> : null}
-          <p className="msgSender">{props.sender.name}</p>
+          <p className="msgSender">{(props.parentMsgId ? "Reply from "  : "") + senderName}</p>
         </>:
         null}
       <p className="message">{props.message}</p>
