@@ -3,13 +3,13 @@ import { TChatData } from "../interface";
 export default {
   "#chat1": {
     id: "#chat1",
-    title: "Tripti",
+    title: "Disha",
     chatType: "personal",
     displayPicture: "https://picsum.photos/id/10/50",
     recipients: [
       {
         id: "12",
-        name: "Tripti",
+        name: "Disha",
         description: "I am a birdie",
         contactNo: "+91-11111111111",
         profilePicUrl: "https://picsum.photos/id/6/50"
@@ -38,7 +38,7 @@ export default {
         parentChatId: "#chat1",
         sender: {
           id: "12",
-          name: "Tripti",
+          name: "Disha",
           description: "I am a birdie",
           contactNo: "+91-11111111111",
           profilePicUrl: "https://picsum.photos/id/6/50"
@@ -52,7 +52,7 @@ export default {
         senderType: "other",
         sender: {
           id: "12",
-          name: "Tripti",
+          name: "Disha",
           description: "I am a birdie",
           contactNo: "+91-11111111111",
           profilePicUrl: "https://picsum.photos/id/6/50"
@@ -68,7 +68,7 @@ export default {
     recipients: [
       {
         id: "12",
-        name: "Tripti",
+        name: "Disha",
         description: "I am a birdie",
         contactNo: "+91-11111111111",
         profilePicUrl: "https://picsum.photos/id/6/50"
@@ -121,7 +121,7 @@ export default {
         parentChatId: "#chat2",
         sender: {
           id: "12",
-          name: "Tripti",
+          name: "Disha",
           description: "I am a birdie",
           contactNo: "+91-11111111111",
           profilePicUrl: "https://picsum.photos/id/6/50"
@@ -135,7 +135,7 @@ export default {
         senderType: "other",
         sender: {
           id: "12",
-          name: "Tripti",
+          name: "Disha",
           description: "I am a birdie",
           contactNo: "+91-11111111111",
           profilePicUrl: "https://picsum.photos/id/6/50"
