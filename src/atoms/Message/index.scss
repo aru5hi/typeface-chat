@@ -5,7 +5,7 @@
   max-width: 50%;
   width:max-content;
   border-radius: $msg-box-radius;
-  padding: 8px;
+  padding: 8px 12px;
   margin-bottom: 10px;
   &:hover{
     .reply {
@@ -26,7 +26,6 @@
 
 .selfMsg {
   margin-left: auto;
-  text-align:  right;
   background-color: $my-msg-bg;
   color: $main-text-dark;
 
@@ -49,13 +48,14 @@
   font-size: 12px;
   font-weight: 500;
   white-space: break-spaces;
-    word-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .msgTimeStamp {
   margin-top: 4px;
   font-size: 10px;
-  color: $sub-text-dark
+  color: $sub-text-dark;
+  text-align: right;
 }
 
 .reply {

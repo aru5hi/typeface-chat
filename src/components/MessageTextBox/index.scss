@@ -1,12 +1,10 @@
 @import "../../sass/atoms/input.scss";
 
 .messageTextBox {
-    width: 72%;
-    position: fixed;
+    position: sticky;
     padding: 0 8px;
     bottom: 0;
     background-color: $color-white;
-    
     &.replyBox {
         position: relative;
         margin-top: 4px;

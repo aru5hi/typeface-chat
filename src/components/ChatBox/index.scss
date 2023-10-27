@@ -4,21 +4,25 @@
 .appMain {
   width: 70%;
   display: inline-block;
-  overflow: auto;
 }
 
 .messageListContainer {
-  margin-top: 62px;
-  border: 1px solid #cce6ff;
+  height: 98vh;
+  overflow-y: auto;
   border-top: none;
+  display: flex;
+  flex-direction: column;
   padding: 12px 24px;
-  height: 100vh;
   padding-bottom: 52px;
-  overflow: auto;
+  margin-bottom: 52px;
+  @include chat-scrollbar
 }
 
 .singleMsg {
-display: block;
+  display: block;
+  &:first-of-type {
+    margin-top: auto;
+  }
 }
 
 .threadParent {
@@ -27,20 +31,27 @@ display: block;
   width: 50%;
   border-radius: 8px;
   background-color: #ededed;
+  display: flex;
+  flex-direction: column;
+
   &.left {
-    float: left;
+    margin-right: auto;
+
     .threadReply {
       float: left;
       margin-left: 12px;
-      text-align: left;
     }
+
   }
+  
   &.right {
-    float: right;
+    margin-left: auto;
+  
     .threadReply {
       float: right;
       margin-right: 12px;
-      text-align: right;
     }
+
   }
 }
+

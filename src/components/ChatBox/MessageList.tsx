@@ -32,7 +32,7 @@ export const MessageList = (props: TMessageList): JSX.Element => {
         classNames={classNames({"threadReply": message.parentChatId})}
       />}
   </div>);
-  return <div className="messageListContainer">
+  return <>
     {rendermessages(props.messageList)}
-  </div>;
+  </>;
 };

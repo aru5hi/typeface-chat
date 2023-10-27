@@ -22,12 +22,14 @@ export const ChatBox = (props: TChatBox): JSX.Element => {
   return <>
     {userData && currentChat ? <div className="chatBox appMain">
       <ChatHeader userData={currentChat}/>
-      {chatList ?
-        <MessageList
-          chatType={currentChat.chatType}
-          messageList={currentChat.messageList}/> :
-        null}
-      <MessageTextBox chatId={props.chatId} previousMsgId={previousMsgId} onSentClick={handleNewMessage}/>
+      <div className="messageListContainer">
+        {chatList ?
+          <MessageList
+            chatType={currentChat.chatType}
+            messageList={currentChat.messageList}/> :
+          null}
+        <MessageTextBox chatId={props.chatId} previousMsgId={previousMsgId} onSentClick={handleNewMessage}/>
+      </div>
     </div> : null}
   </>;
 };

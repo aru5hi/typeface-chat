@@ -1,11 +1,15 @@
 @import "../../sass/variable.scss";
 
+
 .appSide {
+    width: 100%;
+    display: block;
+    border-right: 1px solid #cce6ff;
+}
+.inlineList {
     width: 30%;
     display: inline-block;
     vertical-align: top;
-    border-right: 1px solid #cce6ff;
-    margin-top: 62px;
 }
 .chatItemContainer {
     width: 100%;

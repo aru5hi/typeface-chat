@@ -7,10 +7,10 @@ import { useAppSelector } from "../stateContext/reduxHooks";
 function Main(): React.ReactElement {
   const activeChat = useAppSelector(state => state.activeChatId);
 
-  return (<>
+  return (<div className="bodyContainer">
     <ChatList/>
     {activeChat ? <ChatBox chatId={activeChat}/> : null}
-  </>
+  </div>
   );
 }
 

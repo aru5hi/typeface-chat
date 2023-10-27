@@ -7,8 +7,8 @@
   background-color: $chat-head-bg;
   width: 100%;
   padding: 12px 24px;
-  position: fixed;
-  top:0;
+  position: sticky;
+  top: 0;
 
 &.user {
     border-right: 1px solid #cce6ff;
