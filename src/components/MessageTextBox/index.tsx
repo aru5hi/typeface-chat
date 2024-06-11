@@ -15,11 +15,11 @@ interface TMessageTextBox {
 export const MessageTextBox = (props: TMessageTextBox): JSX.Element => {
   const userData = useAppSelector(state => state.userData);
   const [message, setNewMessage] = useState("");
-  const onMessageChange = (event: ChangeEvent<HTMLTextAreaElement>): void => {
+  const onMessageChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setNewMessage(event.target.value);
   };
 
-  const onKeydown = (event: KeyboardEvent<HTMLTextAreaElement>): void => {
+  const onKeydown = (event: KeyboardEvent<HTMLInputElement>): void => {
     if(event.key === "Enter") {
       event.preventDefault();
       props.onSentClick({
@@ -35,15 +35,14 @@ export const MessageTextBox = (props: TMessageTextBox): JSX.Element => {
       setNewMessage("");
     }
   };
-  return <div className={classNames("messageTextBox", props.classNames)}>
-    <textarea
-      name="chatMsgInput"
-      id="chatInput"
-      value={message}
-      className={classNames("inputField", "chatInput")}
-      onChange={onMessageChange}
-      onKeyDown={onKeydown}
-      placeholder={props.parentMsg ? "Replying to this message" : "Enter your message"}
-    />
-  </div>;
+  return <input
+    type="text"
+    name="chatMsgInput"
+    id="chatInput"
+    value={message}
+    className={classNames("messageTextBox", "inputField")}
+    onChange={onMessageChange}
+    onKeyDown={onKeydown}
+    placeholder={props.parentMsg ? "Replying to this message" : "Enter your message"}
+  />;
 };

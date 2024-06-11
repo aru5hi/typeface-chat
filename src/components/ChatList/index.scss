@@ -1,16 +1,16 @@
 @import "../../sass/variable.scss";
 
-
 .appSide {
-    width: 100%;
-    display: block;
-    border-right: 1px solid #cce6ff;
+    flex-grow: unset;
+    width: 348px;
+    height: 100vh
 }
-.inlineList {
-    width: 30%;
-    display: inline-block;
-    vertical-align: top;
+
+.listContainer {
+    overflow-y: auto;
+    height: calc(100vh - 64px);
 }
+
 .chatItemContainer {
     width: 100%;
     padding: 12px 24px;

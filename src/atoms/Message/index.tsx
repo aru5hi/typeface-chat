@@ -30,9 +30,6 @@ export const Message = (props: TMessage): JSX.Element => {
     else if(Math.floor(diff.days) > 1) return moment(props.timeSent).format("Do MMM YYYY") + ",";
     else return "";
   };
-  const onReplyClick = (): void=> {
-    setReplyState(!showReplyTextBox);
-  };
 
   const onReplySubmit = (newReply: TSingleMessage): void => {
     if(parentChat) {
@@ -41,19 +38,12 @@ export const Message = (props: TMessage): JSX.Element => {
     }
   };
 
-  const senderName = props.senderType === "self" ? "you" :  props.sender?.name;
-
   return <>
     <div className={classNames("msgContainer", props.classNames, {
       "selfMsg": props.senderType === "self",
       "otherMsg": props.senderType === "other",
     })}>
-      {props.sender ?
-        <>
-          {!props.parentMsgId ? <span className="reply" onClick={onReplyClick}>Reply</span> : null}
-          <p className="msgSender">{(props.parentMsgId ? "Reply from "  : "") + senderName}</p>
-        </>:
-        null}
+
       <p className="message">{props.message}</p>
       <p className="msgTimeStamp">
         {` ${getMsgDate()} ${moment(props.timeSent).format("LT")}`} </p>

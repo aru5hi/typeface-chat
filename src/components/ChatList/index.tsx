@@ -8,20 +8,19 @@ export const ChatList = (): JSX.Element => {
   const chatData = useAppSelector(state => state.chatList);
   const chatList  = chatData ? Object.values(chatData) : [];
   const userData = useAppSelector(state => state.userData);
-  const activeChat = useAppSelector(state => state.activeChatId);
   const dispatch = useAppDispatch();
 
   const handleChatClick = (chatId: string): void => {
     dispatch(updateActiveChatId(chatId));
   };
 
-  const renderChatList = (): JSX.Element[] => chatList.map(chat => <ChatListItem {...chat} onChatCLick={handleChatClick}/>);
+  const renderChatList = (): JSX.Element[] => chatList.map(chat => <ChatListItem key={chat.id} {...chat} onChatCLick={handleChatClick}/>);
 
-  return <aside className={`appSide ${activeChat ? "inlineList" : ""}`}>
+  return <aside className="appSide">
     {userData ?
       <>
         <UserHeader userData={userData}/>
-        {renderChatList()}
+        <div className="listContainer">{renderChatList()}</div>
       </>
       :null
     }

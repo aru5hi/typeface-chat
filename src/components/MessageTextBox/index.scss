@@ -1,18 +1,9 @@
 @import "../../sass/atoms/input.scss";
 
 .messageTextBox {
+    display: block;
     position: sticky;
-    padding: 0 8px;
+    padding: 16px;
     bottom: 0;
     background-color: $color-white;
-    &.replyBox {
-        position: relative;
-        margin-top: 4px;
-        max-width: 50%;
-        background-color: transparent;
-    }
-}
-
-.chatInput {
-   width: calc(100% - 18px);
 }

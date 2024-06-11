@@ -2,6 +2,7 @@ import classNames from "classnames";
 import { Message } from "../../atoms/Message";
 import { TChatType, TSingleMessage } from "../../interface";
 import "./index.scss";
+import { useEffect } from "react";
 
 
 interface TMessageList {
@@ -10,28 +11,25 @@ interface TMessageList {
 }
 
 export const MessageList = (props: TMessageList): JSX.Element => {
-  console.log(props.chatType);
-  const rendermessages = (messageList: TSingleMessage[]): JSX.Element[] => messageList.map(message => <div className={classNames("singleMsg")}>
-    {message.replies?.length ? <div className={classNames({
-      "threadParent left": message.senderType === "other",
-      "threadParent right": message.senderType === "self",
-    })}>
-      <Message
-        key={message.id + message.timeSent}
-        {...message}
-        parentChatId={message.parentChatId}
-        sender={props.chatType !== "personal" ? message.sender :undefined}
-      />
-      {rendermessages(message.replies)}
-    </div> :
+  useEffect(() => {
+    setTimeout(() => {
+      const messages = document.querySelectorAll(".singleMsg");
+      messages[messages.length - 1].scrollIntoView();
+    }, 200);
+  }, []);
+
+  const rendermessages = (messageList: TSingleMessage[]): JSX.Element[] => messageList.map(message =>
+    <div key={message.id} className={classNames("singleMsg")}>
       <Message
         key={message.id + message.timeSent}
         {...message}
         parentChatId={message.parentChatId}
         sender={props.chatType !== "personal" ? message.sender :undefined}
         classNames={classNames({"threadReply": message.parentChatId})}
-      />}
-  </div>);
+      />
+    </div>);
+
+
   return <>
     {rendermessages(props.messageList)}
   </>;

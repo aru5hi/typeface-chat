@@ -1,11 +1,9 @@
 @import "../variable.scss";
 
 .inputField {
-    width: 100%;
     border: 1px solid $input-border;
     border-radius: $msg-box-radius;
     background-color: transparent;
-    resize: none;
     font-family: 'Poppins', sans-serif;
     padding: 4px 8px;
     font-size: 12px;

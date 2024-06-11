@@ -17,6 +17,7 @@
 .otherMsg {
   text-align: left;
   background-color: $other-msg-bg;
+  min-width: 100px;
   color: $main-text-dark;
   .msgSender, .msgTimeStamp {
     color: $sub-text-dark;
@@ -28,6 +29,7 @@
   margin-left: auto;
   background-color: $my-msg-bg;
   color: $main-text-dark;
+  min-width: 100px;
 
   .msgSender, .msgTimeStamp {
     color: $sub-text-dark;

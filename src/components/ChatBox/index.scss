@@ -2,19 +2,19 @@
 @import "../../sass/mixins.scss";
 
 .appMain {
-  width: 70%;
-  display: inline-block;
+  border-left: 1px solid #f0f0f0;
+  flex-grow: 1;
+  background-color: #f1f3f6;
 }
 
 .messageListContainer {
-  height: 98vh;
+  height: 90vh;
   overflow-y: auto;
   border-top: none;
   display: flex;
   flex-direction: column;
   padding: 12px 24px;
-  padding-bottom: 52px;
-  margin-bottom: 52px;
+  padding-bottom: 0px;
   @include chat-scrollbar
 }
 

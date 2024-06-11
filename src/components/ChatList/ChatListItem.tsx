@@ -5,6 +5,7 @@ interface TChatList extends TChatData {
     onChatCLick: (chatId: string) => void;
 }
 export const ChatListItem = (props: TChatList): React.ReactElement =><div className="chatItemContainer"
+  key={props.id}
   onClick={(): void => props.onChatCLick(props.id)}>
   <Avatar name={props.title} imgSrc={props.displayPicture}/>
   <p className="chatTitle">

@@ -1,8 +1,5 @@
 .bodyContainer {
-    overflow: hidden
-}
-.appSide {
-    width: 20%;
-    height: 100vh;
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
 }
